@@ -116,3 +116,24 @@ console.log(text4.toUpperCase()); // HELLO WORLD! // // text4 is converted to up
 
 // 11.(String toLowerCase()) A string is converted to lower case with toLowerCase():
 console.log(text4.toLocaleLowerCase()); // hello world! // // text4 is  converted to lower case
+
+
+// 11.(String isWellFormed()) The isWellFormed() method returns true if a string is well formed. Otherwise it returns false. A string is not well formed if it contains lone surrogates.
+let text11 = "Hello world!";
+console.log(text11.isWellFormed()); // true
+text11 = "Hello world \uD800";
+console.log(text11.isWellFormed()); // false
+
+
+/*Note:
+Lone Surrogates -->
+A lone surrogate is a Unicode surrogate code point that is not part of a valid surrogate pair used to represent characters in UTF-16 encoding.
+*/
+
+
+// 12.(String toWellFormed()) The String method toWellFormed() returns a new string where all "lone surrogates" are replaced with the Unicode replacement character (U+FFFD).
+let text12 = "Hello World \uD800";
+console.log(text12.toWellFormed); // [Function: toWellFormed]
+
+
+
