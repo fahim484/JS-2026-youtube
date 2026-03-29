@@ -117,7 +117,6 @@ console.log(text4.toUpperCase()); // HELLO WORLD! // // text4 is converted to up
 // 11.(String toLowerCase()) A string is converted to lower case with toLowerCase():
 console.log(text4.toLocaleLowerCase()); // hello world! // // text4 is  converted to lower case
 
-
 // 11.(String isWellFormed()) The isWellFormed() method returns true if a string is well formed. Otherwise it returns false. A string is not well formed if it contains lone surrogates.
 let text11 = "Hello world!";
 console.log(text11.isWellFormed()); // true
@@ -135,5 +134,140 @@ A lone surrogate is a Unicode surrogate code point that is not part of a valid s
 let text12 = "Hello World \uD800";
 console.log(text12.toWellFormed); // [Function: toWellFormed]
 
+// 13.(String trim()) The trim() method removes whitespace from both sides of a string:
+let text13 = "     Hello World!     ";
+console.log(text13.length); // 22
+console.log(text13.trim()); // "Hello World!"
+console.log(text13.trim().length); // 12
+
+// 14. (String trimStart()) ECMAScript 2019 added the String method trimStart() to JavaScript. The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+let text14 = "     Hello World!     ";
+console.log(text14.length); // 22
+console.log(text14.trimStart()); // "Hello World!     "
+console.log(text14.trimStart().length); // 17
+
+// 15. (String trimEnd()) ECMAScript 2019 added the string method trimEnd() to JavaScript. The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+let text15 = "     Hello World!     ";
+console.log(text15.length); // 22
+console.log(text15.trimEnd()); // "     Hello World!"
+console.log(text15.trimEnd().length); // 17
 
 
+
+
+/*Note:
+
+JavaScript String Padding
+ECMAScript 2017 added two new string methods to JavaScript: padStart() and padEnd() to support padding at the beginning and at the end of a string.
+ */
+
+// 16. (String padStart()) The padStart() method pads a string from the start. It pads a string with another string (multiple times) until it reaches a given length.
+// Pad a string with "0" until it reaches the length 4
+let text16 = "5";
+console.log(text16); // 5
+console.log(typeof text16); // string
+console.log(text16.padStart(4, "0")); // 0005
+// Pad a string with "x" until it reaches the length 4:
+console.log(text16.padStart(4, "x")); // xxx5
+/*
+Note:
+The padStart() method is a string method.
+
+To pad a number, convert the number to a string first.
+
+See the example below.
+ */
+let numb = 5;
+let numbConvertToText = numb.toString();
+let padded = numbConvertToText.padStart(4, "0");
+console.log(padded); // 0005
+
+// 17. (String padEnd()) The padEnd() method pads a string from the end.It pads a string with another string (multiple times) until it reaches a given length.
+let text17 = "5";
+console.log(text17.padEnd(4, "0")); // 5000
+console.log(text17.padEnd(4, "x")); // 5xxx
+/*
+Note:
+The padEnd() method is a string method.
+
+To pad a number, convert the number to a string first.
+
+See the example below..
+ */
+let numb2 = 5;
+let numbConvertToText2 = numb2.toString();
+let padded2 = numbConvertToText2.padEnd(4, "0");
+console.log(padded2); // 5000
+
+// 18. (String repeat()) The repeat() method returns a string with a number of copies of a string. The repeat() method returns a new string. The repeat() method does not change the original string.
+// Create copies of a text:
+let text18 = "Hello world!";
+console.log(text18.repeat(2)); // Hello world!Hello world!
+console.log(text18.repeat(4)); // Hello world!Hello world!Hello world!Hello world!
+
+// 19. (String replace()) The replace() method replaces a specified value with another value in a string:
+let text19 = "Please visit Microsoft!"
+let newText = text19.replace("Microsoft", "W3Schools");
+console.log(text19); // Please visit Microsoft!
+console.log(newText); // Please visit W3Schools!
+/*
+Note:
+The replace() method does not change the string it is called on.
+
+The replace() method returns a new string.
+
+The replace() method replaces only the first match
+
+If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+*/
+// By default, the replace() method replaces only the first match:
+let oldText = "Please visit Microsoft and Microsoft!";
+let oldNewText = oldText.replace("Microsoft", "W3Schools");
+console.log(oldText); // Please visit Microsoft and Microsoft!
+console.log(oldNewText); // Please visit W3Schools and Microsoft!
+// By default, the replace() method is case sensitive. Writing MICROSOFT (with upper-case) will not work:
+let someText = "Please visit Microsoft!"
+console.log(someText); // Please visit Microsoft!
+console.log(someText.replace("MICROSOFT", "W3Schools")); // Please visit Microsoft!
+// To replace case insensitive, use a regular expression with an /i flag (insensitive):
+console.log(someText.replace(/MICROSOFT/i, "W3Schools")); // Please visit W3Schools!
+/*
+Note:
+Regular expressions are written without quotes.
+*/
+// To replace all matches, use a regular expression with a /g flag (global match):
+console.log(oldText.replace(/Microsoft/g, "W3Schools")); // Please visit W3Schools and W3Schools!
+
+// 20. (String replaceAll()) In 2021, JavaScript introduced the string method replaceAll():
+let text20 = "I love cats. Cats are very easy to love. cats are very popular.";
+console.log(text20.replaceAll("Cats", "Dogs")); // I love cats. Dogs are very easy to love. cats are very popular.
+console.log(text20.replaceAll("cats", "dogs")); // I love dogs. Cats are very easy to love. dogs are very popular.
+// The replaceAll() method allows you to specify a regular expression instead of a string to be replaced. If the parameter is a regular expression, the global flag (g) must be set, otherwise a TypeError is thrown.
+console.log(text20.replaceAll(/Cats/g, "Dogs")); // I love cats. Dogs are very easy to love. cats are very popular.
+console.log(text20.replaceAll(/cats/g, "dogs")); // I love dogs. Cats are very easy to love. dogs are very popular.
+/*
+Note:
+replaceAll() is an ES2021 feature.
+
+replaceAll() does not work in Internet Explorer.
+ */
+
+
+/*
+Converting a String to an Array:
+If you want to work with a string as an array, you can convert it to an array.
+ */
+// 21. (String split()) A string can be converted to an array with the split() method:
+let text21 = "a, b, c, d, e, f";
+console.log(text21.split(",")); // Split on commas // [ 'a', ' b', ' c', ' d', ' e', ' f' ]
+console.log(text21.split(" ")); // Split on spaces // [ 'a,', 'b,', 'c,', 'd,', 'e,', 'f' ]
+console.log(text21.split("|")); // Split on pipe // [ 'a, b, c, d, e, f' ]
+// If the separator is omitted, the returned array will contain the whole string in index [0].
+
+// If the separator is "", the returned array will be an array of single characters:
+console.log(text21.split("")); /*[
+  'a', ',', ' ', 'b',
+  ',', ' ', 'c', ',',
+  ' ', 'd', ',', ' ',
+  'e', ',', ' ', 'f'
+] */
