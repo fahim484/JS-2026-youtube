@@ -35,17 +35,34 @@ newArr.unshift(9)
 console.log(newArr); // [9, 1, 2, 3, 4, 5, 6 ]
 newArr.shift(9)
 console.log(newArr); // [ 1, 2, 3, 4, 5, 6 ]
-console.log(newArr.includes(9)); // false
+console.log(newArr.includes(9)); // false // boolean dataType
 console.log(newArr.indexOf(9)); // -1
-console.log(newArr.indexOf(1)); // 2
+const heyArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(heyArr); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(heyArr.indexOf(0)); // 0
+console.log(heyArr.indexOf(1)); // 1
+console.log(heyArr.indexOf(3)); // 3
 
-const allNewArr = newArr.join()
-console.log(newArr); // [ 1, 2, 3, 4, 5, 6 ]
-console.log(typeof newArr); // [ 1, 2, 3, 4, 5, 6 ] // object 
-console.log(allNewArr); // 1,2,3,4,5,6 // string
-console.log(typeof allNewArr); // 1,2,3,4,5,6 // string
+const allNewArr = heyArr.join()
+console.log(heyArr); // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+console.log(typeof newArr); // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] // object 
+console.log(allNewArr); // 0,1,2,3,4,5,6,7,8,9 // string
+console.log(typeof allNewArr); // string
 
 
 
-// slice, splice method:
-console.log("A ");
+// slice, splice method (Interview Questions):
+
+const sArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log("A ", sArr); // A [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// slice:-
+const myn1 = sArr.slice(1, 3) // Do Not Manipulate Original Array.
+console.log(myn1); // [ 1, 2 ]
+console.log("B ", sArr); // B [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+// splice:-
+const myn2 = sArr.splice(1, 3) // Manipulate Original Array.
+console.log("C ", sArr); // C [0, 4, 5, 6, 7, 8, 9]
+console.log(myn2); // [ 1, 2, 3 ]
